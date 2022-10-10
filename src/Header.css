@@ -1,0 +1,37 @@
+h1{
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.head-container{
+    text-align: center;
+    background: #F0FFFF;
+    font-size: 26px;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+.navbar{
+    height: 50px;
+    font-size: 20px;
+}
+
+.navbar .navbar-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar .navbar-list .nav-item{
+    padding: 10px;
+    color: #e3e3e3;
+}
+
+.navbar .navbar-list .nav-item:hover{
+    background: #F0F2cF;
+}
