@@ -32,6 +32,31 @@ export default function Characters() {
         <p>{Data.constellation}</p>
         <p>{Data.birthday}</p>
         <p>{Data.description}</p>
+        { Data.skillTalents && Data.skillTalents.map(data => (
+            <div key={data.name}>
+                <p>{data.description}</p>
+                {data.unlock}: {data.name}
+                {
+                    data.upgrades && data.upgrades.map(
+                        updata => (
+                            <p>{updata.name}:{updata.value}</p>
+                        )
+                    )
+                }
+            </div>
+        )) }
+        { Data.passiveTalents && Data.passiveTalents.map(data => (
+            <div key={data.name}>
+                {data.unlock}: {data.name}
+                <p>{data.description}</p>
+            </div>
+        )) }
+        { Data.constellations && Data.constellations.map(data => (
+            <div key={data.name}>
+                {data.unlock}: {data.name}
+                <p>{data.description}</p>
+            </div>
+        )) }
     </>
   )
 }
