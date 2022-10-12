@@ -2,9 +2,6 @@
     width: 100%;
     height: 100%;
     align-items: center;
-}
-
-.flex-container .character-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,14 +10,14 @@
     text-align: center;
 }
 
-.flex-container .character-list .character-item{
+.flex-container .character-item{
     padding: 10px;
     margin: 0px 3px 3px 0px;
     font-size: 18px;
     border: 1px solid;
-    flex-basis: 15%;
+    flex-basis: 25%;
 }
 
-.flex-container .character-list .character-item:hover{
+.flex-container .character-item:hover{
     background: #d3d3d3;
 }

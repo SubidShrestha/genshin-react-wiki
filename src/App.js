@@ -1,10 +1,11 @@
 import React from 'react'
-import './Header.css'
+import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home.js'
-import Characters from './Pages/Characters.js'
-import Weapons from './Pages/Weapons.js'
+import CharacterList from './Pages/CharacterList.js'
+import WeaponList from './Pages/WeaponList.js'
 import ErrorPage from './Pages/ErrorPage.js'
+import Characters from './Pages/Characters.js'
 
 function App() {
 
@@ -16,18 +17,22 @@ function App() {
           <nav className='navbar'>
             <ul className='navbar-list'>
                 <li className='nav-item'><Link to="/">Home</Link></li>
-                <li className='nav-item'><Link to="/characters">Characters</Link></li>
+                <li className='nav-item'><Link to="/characters/">Characters</Link></li>
                 <li className='nav-item'><Link to="/weapons">Weapons</Link></li>
             </ul>
           </nav>
         </div>
         <Routes>
           <Route path='/' element={ <Home /> } />
-          <Route path='/characters' element={ <Characters /> } />
-          <Route path='/weapons' element={ <Weapons /> } />
+          <Route path='/characters' element={ <CharacterList /> } />
+          <Route path='/characters/:character' element={ <Characters /> } />
+          <Route path='/weapons' element={ <WeaponList /> } />
           <Route path='*' element={ <ErrorPage /> } />
         </Routes>
       </Router>
+      <div className='foot-container'>
+        <footer>Not Licensed and only for learning purpose</footer>
+      </div>
     </>
   );
 }

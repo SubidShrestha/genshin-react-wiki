@@ -1,36 +1,37 @@
-import React, { useEffect, useState }  from 'react'
-import './css/Characters.css'
+import React, {useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function Characters() {
-
-    const [Characters, setCharacters] = useState([])
-
-    const character = (
-        async() => {
-            let response = await fetch('https://api.genshin.dev/characters')
-            setCharacters(await response.json())
-        }
-    )
+    const {character} = useParams()
+    const [Data,setData] = useState([])
 
     useEffect(
         () => {
-            character()
-        }, []
+            const getCharacter = async() =>{
+                const response = await fetch(`https://api.genshin.dev/characters/${character}`)
+                setData(await response.json())
+            }
+            getCharacter()
+        }
     )
+
+    const gachaurl = `https://api.genshin.dev/characters/${character}/gacha-splash`
 
   return (
     <>
-        <div className='flex-container'>
-            <ul className='character-list'>
-            {
-                Characters.map(
-                    character => (
-                        <li key={character} className='character-item' > { character } </li>
-                    )
-                )
-            }
-            </ul>
-        </div>
+        <p>
+            <img src={gachaurl} alt="" />
+        </p>
+        <p>{Data.name}</p>
+        <p>{Data.title}</p>
+        <p>{Data.vision}</p>
+        <p>{Data.weapon}</p>
+        <p>{Data.nation}</p>
+        <p>{Data.affiliation}</p>
+        <p>{Data.rarity}</p>
+        <p>{Data.constellation}</p>
+        <p>{Data.birthday}</p>
+        <p>{Data.description}</p>
     </>
   )
 }
